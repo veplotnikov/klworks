@@ -8,12 +8,12 @@
     apt:
       name: nginx
       state: present
+  - name: Replace string
+    lineinfile:
+      path: /var/www/html/index.nginx-debian.html
+      regexp: 'Welcom to nginx!'
+      line: '<p><script> document.write (new Date().toLocaleDateString()); </script></p>'
   - name: Ensure nginx.service  is present
     service:
       name: nginx
-      state: started
-  - name: Replace string
-    lineinfile:
-      path: /var/www/index.html
-      regexp: 'Welcom to nginx!'
-      line: '<p><script> document.write (new Date().toLocaleDateString()); </script></p>'
+      state: restarted

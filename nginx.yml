@@ -11,7 +11,7 @@
   - name: Replace string
     lineinfile:
       path: /var/www/html/index.nginx-debian.html
-      regexp: 'Welcom to nginx!'
+      regexp: 'Welcome to nginx!'
       line: '<p><script> document.write (new Date().toLocaleDateString()); </script></p>'
   - name: Ensure nginx.service  is present
     service:
